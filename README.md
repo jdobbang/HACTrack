@@ -1,107 +1,25 @@
-# 4DHumans: Reconstructing and Tracking Humans with Transformers
-Code repository for the paper:
-**Humans in 4D: Reconstructing and Tracking Humans with Transformers**
-[Shubham Goel](https://people.eecs.berkeley.edu/~shubham-goel/), [Georgios Pavlakos](https://geopavlakos.github.io/), [Jathushan Rajasegaran](http://people.eecs.berkeley.edu/~jathushan/), [Angjoo Kanazawa](https://people.eecs.berkeley.edu/~kanazawa/)<sup>\*</sup>, [Jitendra Malik](http://people.eecs.berkeley.edu/~malik/)<sup>\*</sup>
+# HACTrack
 
-[![arXiv](https://img.shields.io/badge/arXiv-2305.20091-00ff00.svg)](https://arxiv.org/pdf/2305.20091.pdf)  [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://shubham-goel.github.io/4dhumans/)     [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Ex4gE5v1bPR3evfhtG7sDHxQGsWwNwby?usp=sharing)  [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/brjathu/HMR2.0)
+[PHALP' 모델 실행]
+1. 4dhumans 깃허브의 "dev branch"를 git clone --branch dev https://github.com/shubham-goel/4D-Humans.git로 다운받기 (dev branch: PHALP', tex branch 이후 버전: 4DHumans)
+2. 생성된 4D-Humans 폴더 내 Readme의 Installation and Setup의 안내를 따라 가상환경 생성(시간이 조금 소요되며 가상환경 이름은 4D-humans)
+3. 생성한 4D-humans 가상환경에서 pip install git+https://github.com/brjathu/PHALP.git@dev로 dev 브랜치의 PHALP 라이브러리 설치
+4. 4D-Humans 폴더에서 python track.py video.source="example_data/videos/gymnasts.mp4" 명령어로 PHALP' 실행 확인(필요 모델 및 파일 다운로드 될 것임)
+5. pip install filterpy
 
+[PoseTrack 데이터셋 test 코드 수정 및 데이터셋 다운로드]
+1. 본 repository의 track.py로 track.py 대체
+2. '_DATA' 파일을 ~를 통해 4D-Humans 폴더에 다운로드
+3. PoseTrack validation 이미지, 어노테이션 데이터셋 다운로드하고 track.py line 69에 경로를 알맞게 수정
+4. PHALP.py로 ~anaconda path/envs/4D-humans/lib/python3.10/site-packages/phalp/trackers/PHALP.py를 대체
+5. PHALP.py line 195의 경로는 HACTrack 방법에 따라 재분류된 검출 결과 파일에 알맞게 수정
+6. 본 repository의 tracker.py로 ~anaconda path/envs/4D-humans/lib/python3.10/site-packages/phalp/external/deep_sort/tracker.py 대체
+7. 4D-Humans 폴더에서 python track.py 실행
 
-![teaser](assets/teaser.png)
-
-## Installation and Setup
-First, clone the repo. Then, we recommend creating a clean [conda](https://docs.conda.io/) environment, installing all dependencies, and finally activating the environment, as follows:
-```bash
-git clone https://github.com/shubham-goel/4D-Humans.git
-cd 4D-Humans
-conda env create -f environment.yml
-conda activate 4D-humans
-```
-
-If conda is too slow, you can use pip:
-```bash
-conda create --name 4D-humans python=3.10
-conda activate 4D-humans
-pip install numpy==1.23.1 torch
-pip install -e .[all]
-```
-
-All checkpoints and data will automatically be downloaded to `$HOME/.cache/4DHumans` the first time you run the demo code.
-
-Besides these files, you also need to download the *SMPL* model. You will need the [neutral model](http://smplify.is.tue.mpg.de) for training and running the demo code. Please go to the corresponding website and register to get access to the downloads section. Download the model and place `basicModel_neutral_lbs_10_207_0_v1.0.0.pkl` in `./data/`.
-
-## Run demo on images
-The following command will run ViTDet and HMR2.0 on all images in the specified `--img_folder`, and save renderings of the reconstructions in `--out_folder`. `--batch_size` batches the images together for faster processing. The `--side_view` flags additionally renders the side view of the reconstructed mesh, `--full_frame` renders all people together in front view, `--save_mesh` saves meshes as `.obj`s.
-```bash
-python demo.py \
-    --img_folder example_data/images \
-    --out_folder demo_out \
-    --batch_size=48 --side_view --save_mesh --full_frame
-```
-
-## Run tracking demo on videos
-Our tracker builds on PHALP, please install that first:
-```bash
-pip install git+https://github.com/brjathu/PHALP.git
-```
-
-Now, run `track.py` to reconstruct and track humans in any video. Input video source may be a video file, a folder of frames, or a youtube link:
-```bash
-# Run on video file
-python track.py video.source="example_data/videos/gymnasts.mp4"
-
-# Run on extracted frames
-python track.py video.source="/path/to/frames_folder/"
-
-# Run on a youtube link (depends on pytube working properly)
-python track.py video.source=\'"https://www.youtube.com/watch?v=xEH_5T9jMVU"\'
-```
-The output directory (`./outputs` by default) will contain a video rendering of the tracklets and a `.pkl` file containing the tracklets with 3D pose and shape. Please see the [PHALP](https://github.com/brjathu/PHALP) repository for details.
-
-## Training
-Download the [training data](https://www.dropbox.com/sh/mjdwu59fxuhls5h/AACQ6FCGSrggUXmRzuubRHXIa) to `./hmr2_training_data/`, then start training using the following command:
-```
-bash fetch_training_data.sh
-python train.py exp_name=hmr2 data=mix_all experiment=hmr_vit_transformer trainer=gpu launcher=local
-```
-Checkpoints and logs will be saved to `./logs/`. We trained on 8 A100 GPUs for 7 days using PyTorch 1.13.1 and PyTorch-Lightning 1.8.1 with CUDA 11.6 on a Linux system. You may adjust batch size and number of GPUs per your convenience.
-
-## Evaluation
-Download the [evaluation metadata](https://www.dropbox.com/scl/fi/kl79djemdgqcl6d691er7/hmr2_evaluation_data.tar.gz?rlkey=ttmbdu3x5etxwqqyzwk581zjl) to `./hmr2_evaluation_data/`. Additionally, download the Human3.6M, 3DPW, LSP-Extended, COCO, and PoseTrack dataset images and update the corresponding paths in  `hmr2/configs/datasets_eval.yaml`.
-
-Run evaluation on multiple datasets as follows, results are stored in `results/eval_regression.csv`. 
-```bash
-python eval.py --dataset 'H36M-VAL-P2,3DPW-TEST,LSP-EXTENDED,POSETRACK-VAL,COCO-VAL' 
-```
-
-By default, our code uses the released checkpoint (mentioned as HMR2.0b in the paper). To use the HMR2.0a checkpoint, you may download and untar from [here](https://people.eecs.berkeley.edu/~jathushan/projects/4dhumans/hmr2a_model.tar.gz)
-
-## Preprocess code
-To preprocess LSP Extended and Posetrack into metadata zip files for evaluation, see `hmr2/datasets/preprocess`.
-
-Training data preprocessing coming soon.
-
-## Open Source Contributions
-[carlosedubarreto](https://github.com/carlosedubarreto/) has created a tutorial to import 4D Humans in Blender: https://www.patreon.com/posts/86992009
-
-## Acknowledgements
-Parts of the code are taken or adapted from the following repos:
-- [ProHMR](https://github.com/nkolot/ProHMR)
-- [SPIN](https://github.com/nkolot/SPIN)
-- [SMPLify-X](https://github.com/vchoutas/smplify-x)
-- [HMR](https://github.com/akanazawa/hmr)
-- [ViTPose](https://github.com/ViTAE-Transformer/ViTPose)
-- [Detectron2](https://github.com/facebookresearch/detectron2)
-
-Additionally, we thank [StabilityAI](https://stability.ai/) for a generous compute grant that enabled this work.
-
-## Citing
-If you find this code useful for your research, please consider citing the following paper:
-
-```bibtex
-@inproceedings{goel2023humans,
-    title={Humans in 4{D}: Reconstructing and Tracking Humans with Transformers},
-    author={Goel, Shubham and Pavlakos, Georgios and Rajasegaran, Jathushan and Kanazawa, Angjoo and Malik, Jitendra},
-    booktitle={ICCV},
-    year={2023}
-}
-```
+[평가 코드 수정]
+1. posetrack validation 데이터셋의 170개의 시퀀스에 대한 결과는 4D-Humans/outputs/results에 시퀀스 별로 pkl로 저장
+2. https://github.com/JonathonLuiten/TrackEval.git으로 TrackEval 폴더를 다운로드 하고 python setup.py install로 라이브러리 설치한
+3. 본 reposityroy의 create_txt.py로 eval.py를 대체하고 python eval.py ~4D-Humans경로/outputs/results phalp posetrack 명령어로 170개의 시퀀스를 posetrack_phalp.pkl로 통합 후 txt 폴더내 170개의 txt 파일로 변환
+4. git clone https://github.com/anDoer/PoseTrack21.git으로 posetrack 평가 코드 다운로드
+5. PoseTrack21/eval/posetrack21/scripts/run_mot.py
+6. PoseTrack21/gt_processing.py으로 gt.txt process
