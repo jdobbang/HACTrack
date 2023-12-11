@@ -18,8 +18,8 @@
 
 [평가 코드 수정]
 1. posetrack validation 데이터셋의 170개의 시퀀스에 대한 결과는 4D-Humans/outputs/results에 시퀀스 별로 pkl로 저장
-2. https://github.com/JonathonLuiten/TrackEval.git으로 TrackEval 폴더를 다운로드 하고 python setup.py install 로 라이브러리 설치한
+2. https://github.com/JonathonLuiten/TrackEval.git 으로 TrackEval 폴더를 다운로드 하고 python setup.py install 로 라이브러리 설치한
 3. 본 reposityroy의 create_txt.py로 eval.py를 대체하고 python eval.py ~4D-Humans경로/outputs/results phalp posetrack 명령어로 170개의 시퀀스를 posetrack_phalp.pkl로 통합 후 txt 폴더내 170개의 txt 파일로 변환
-4. git clone https://github.com/anDoer/PoseTrack21.git으로 posetrack 평가 코드 다운로드
+4. git clone https://github.com/anDoer/PoseTrack21.git 으로 posetrack 평가 코드 다운로드
 5. PoseTrack21/eval/posetrack21/scripts/run_mot.py
 6. PoseTrack21/gt_processing.py으로 gt.txt process
