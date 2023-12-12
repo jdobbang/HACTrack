@@ -38,7 +38,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
 3. PoseTrack validation 이미지, 어노테이션 데이터셋을 다운로드하고 `track.py`의 69번 라인에 경로를 알맞게 수정합니다.
 4. `PHALP.py`로 ~anaconda path/envs/4D-humans/lib/python3.10/site-packages/phalp/trackers/PHALP.py를 대체합니다.
 5. `PHALP.py`의 195번 라인의 경로는 HACTrack 방법에 따라 재분류된 검출 결과 파일에 알맞게 수정합니다.
-6. 본 repository의 `tracker.py`로 ~anaconda path/envs/4D-humans/lib/python3.10/site-packages/phalp/external/deep_sort/tracker.py를 대체합니다.
+6. 본 repository의 `tracker.py`로 PATH to Anaconda/envs/4D-humans/lib/python3.10/site-packages/phalp/external/deep_sort/tracker.py를 대체합니다.
 7. 4D-Humans 폴더에서 다음 명령어를 실행합니다:
 
     ```bash
@@ -57,7 +57,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
 3. 본 repository의 `create_txt.py`로 `eval.py`를 대체하고 다음 명령어로 170개의 시퀀스를 posetrack_phalp.pkl로 통합 후 txt 폴더내 170개의 txt 파일로 변환합니다:
 
     ```bash
-    python eval.py ~4D-Humans경로/outputs/results phalp posetrack
+    python eval.py PATH to 4D-Humans/outputs/results phalp posetrack
     ```
 
 4. [PoseTrack21](https://github.com/anDoer/PoseTrack21.git)을 클론하고 `PoseTrack21/eval/posetrack21/scripts/run_mot.py`와 `PoseTrack21/gt_processing.py`를 사용하여 posetrack 평가 코드를 다운로드하고 처리합니다.
