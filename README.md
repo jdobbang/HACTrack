@@ -10,26 +10,23 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     ```bash
     git clone --branch dev https://github.com/shubham-goel/4D-Humans.git
     ```
-
 2. 생성된 4D-Humans 폴더 내의 Readme의 Installation and Setup의 안내를 따라 가상환경을 생성합니다. 가상환경 이름은 4D-humans입니다.
-
 3. 생성한 4D-humans 가상환경에서 다음 명령어로 dev 브랜치의 PHALP 라이브러리를 설치합니다:
 
     ```bash
     pip install git+https://github.com/brjathu/PHALP.git@dev
     ```
-
 4. 4D-Humans 폴더에서 다음 명령어로 PHALP'를 실행하여 확인합니다:
 
     ```bash
     python track.py video.source="example_data/videos/gymnasts.mp4"
     ```
-
 5. 추가 라이브러리를 설치합니다:
 
     ```bash
     pip install filterpy
     ```
+
 
 ### PoseTrack 데이터셋 test 코드 수정 및 데이터셋 다운로드
 
@@ -47,12 +44,14 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     python track.py
     ```
 
+
 ### Test 결과 후처리
 
 1. Posetrack validation 데이터셋의 170개의 시퀀스에 대한 결과는 `4D-Humans/outputs/results`에 시퀀스 별로 pkl로 저장됩니다.
 2. 본 repository의 `create_txt.py`로 `eval.py`를 대체하고 다음 명령어로 170개의 시퀀스를 posetrack_phalp.pkl로 통합 후 txt 폴더내 170개의 txt 파일로 변환합니다:
 
 ### Evaluation 
+
 1. [TrackEval](https://github.com/JonathonLuiten/TrackEval.git)을 다운로드하고 설치합니다:
 
     ```bash
@@ -64,6 +63,5 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     ```bash
     python eval.py PATH to 4D-Humans/outputs/results phalp posetrack
     ```
-
 4. ignore region 처리 부분에 대해 수정합니다.(내용 추가 예정)
 5. ~로 평가를 수행합니다. 결과는 ~에 저장됩니다.
