@@ -73,5 +73,4 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
    ```bash
     pip install shapely
     ```
-3. ignore region 처리 부분에 대해 수정합니다.(내용 추가 예정)
-4. ~로 평가를 수행합니다. 결과는 ~에 저장됩니다.
+4.  PATH to PoseTrack/eval/posetrack21/scripts/run_mot.py로 평가를 수행합니다. 결과는 tracker 별 txt 폴더 내에 저장됩니다.
