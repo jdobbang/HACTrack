@@ -57,7 +57,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     ```bash
     python setup.py install
     ```
-2. 본 repository의 'gt_processing.py`를 PoseTrack21 폴더에서 실행하여 PATH to PoseTrack21/eval/posetrack21/posetrack21/data/gt/PoseTrackReID/posetrack_data/mot/val/"VIDEONAME"/gt/gt.txt를 gt_sampling.txt로 전처리합니다. 이는 PoseTrack21에 대한 GT입니다.
+2. 본 repository의 'gt_processing.py`를 PoseTrack21 폴더에서 실행하여 GT txt 파일을 전처리합니다. 이는 PoseTrack21에 대한 GT입니다.
     ```bash
     python eval.py PATH to 4D-Humans/outputs/results phalp posetrack
     ```
