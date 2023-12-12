@@ -63,8 +63,7 @@ cs.store(name="config", node=Human4DConfig)
 def main(cfg: DictConfig) -> Optional[float]:
     
     #PoseTrack validation video lists
-    #videos = np.load('./_DATA/posetrack-val_videos.npy')
-    videos = np.array(['000342_mpii_test'])
+    videos = np.load('./_DATA/posetrack-val_videos.npy')
     for v in range(len(videos)):
         video= videos[v]
         cfg['video']['source'] = '/home/dobbang/jeon/PoseTrack/val/'+video#path assign
