@@ -5,7 +5,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
 ## [Installation](#installation)
 ## PHALP' 모델 실행
 
-1. 4dhumans 깃허브의 "dev branch"를 다음 명령어로 클론합니다:
+1. [4dhumans](https://github.com/shubham-goel/4D-Humans) 깃허브의 "dev branch"를 다음 명령어로 클론합니다:
 
     ```bash
     git clone --branch dev https://github.com/shubham-goel/4D-Humans.git
