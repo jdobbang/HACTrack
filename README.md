@@ -47,12 +47,12 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     python track.py
     ```
 
-### test 결과 후처리
+### Test 결과 후처리
 
 1. Posetrack validation 데이터셋의 170개의 시퀀스에 대한 결과는 `4D-Humans/outputs/results`에 시퀀스 별로 pkl로 저장됩니다.
 2. 본 repository의 `create_txt.py`로 `eval.py`를 대체하고 다음 명령어로 170개의 시퀀스를 posetrack_phalp.pkl로 통합 후 txt 폴더내 170개의 txt 파일로 변환합니다:
 
-### 평가 준비 
+### Evaluation 
 1. [TrackEval](https://github.com/JonathonLuiten/TrackEval.git)을 다운로드하고 설치합니다:
 
     ```bash
@@ -65,7 +65,5 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     python eval.py PATH to 4D-Humans/outputs/results phalp posetrack
     ```
 
-6. ignore region 처리 부분에 대해 수정합니다.(내용 추가 예정)
-
-### 평가 
-1. 
+4. ignore region 처리 부분에 대해 수정합니다.(내용 추가 예정)
+5. ~로 평가를 수행합니다. 결과는 ~에 저장됩니다.
