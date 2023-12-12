@@ -59,7 +59,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     ```bash
     python setup.py install
     ```
-2. 본 repository의 아래 코드를 PoseTrack21 폴더에서 실행하여 GT txt 파일을 전처리합니다. 이는 PoseTrack21에 대한 GT입니다.
+2. 본 repository의 아래 코드를 PoseTrack21 폴더에서 실행하여 GT txt 파일을 전처리합니다. 이는 PoseTrack21에 대한 GT입니다. 이때, line 7과 9의 경로를 알맞게 수정합니다. 
    
     ```bash
     python gt_processing.py
