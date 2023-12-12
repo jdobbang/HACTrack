@@ -2,8 +2,8 @@
 
 HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰도 점수에 더해 상향식 2차원 자세 추정 정보를 더하여 검출 결과에 대한 정교한 외관 변화 정도를 결정하고, 이를 활용하여 다수 휴먼 추적을 수행하는 방법입니다
 
-## [Installation and Setup](#installation and setup)
-## PHALP' 모델 실행
+## Installation and Setup
+### PHALP' 모델 실행
 
 1. [4dhumans](https://github.com/shubham-goel/4D-Humans) 깃허브의 "dev branch"를 다음 명령어로 클론합니다:
 
@@ -31,7 +31,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     pip install filterpy
     ```
 
-## PoseTrack 데이터셋 test 코드 수정 및 데이터셋 다운로드
+### PoseTrack 데이터셋 test 코드 수정 및 데이터셋 다운로드
 
 1. 본 repository의 `track.py`로 `track.py`를 대체합니다.
 2. [T3DP](https://github.com/brjathu/T3DP?tab=readme-ov-file)의 '_DATA' 파일을 4D-Humans 폴더에 다운로드합니다.
@@ -47,12 +47,12 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     python track.py
     ```
 
-## test 결과 후처리
+### test 결과 후처리
 
 1. Posetrack validation 데이터셋의 170개의 시퀀스에 대한 결과는 `4D-Humans/outputs/results`에 시퀀스 별로 pkl로 저장됩니다.
 2. 본 repository의 `create_txt.py`로 `eval.py`를 대체하고 다음 명령어로 170개의 시퀀스를 posetrack_phalp.pkl로 통합 후 txt 폴더내 170개의 txt 파일로 변환합니다:
 
-## 평가 준비 
+### 평가 준비 
 1. [TrackEval](https://github.com/JonathonLuiten/TrackEval.git)을 다운로드하고 설치합니다:
 
     ```bash
@@ -67,5 +67,5 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
 
 6. ignore region 처리 부분에 대해 수정합니다.(내용 추가 예정)
 
-## 평가 
+### 평가 
 1. 
