@@ -52,6 +52,9 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     ```bash
     python crate_ext.py PATH to 4D-Humans/outputs/results phalp posetrack
     ```
+3. 2의 결과로 생성된 txt 폴더의 경로는 tracker 최종 결과 경로입니다.
+
+   
 ### Evaluation 
 
 1. [TrackEval](https://github.com/JonathonLuiten/TrackEval.git)을 다운로드하고 설치합니다:
@@ -63,6 +66,12 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
    
     ```bash
     python gt_processing.py
+    ```
+3. 본 repository의 posetrack_mot.py로 PATH to PoseTrack/eval/posetrack21/posetrack21/trackeval/datasets/posetrack_mot.py를 대체합니다.
+4. posetrack_mot.py의 line 21은 추적 결과인 txt 폴더의 상위 경로로 수정합니다.
+5. 추가 라이브러리 설치
+   ```bash
+    pip install shapely
     ```
 3. ignore region 처리 부분에 대해 수정합니다.(내용 추가 예정)
 4. ~로 평가를 수행합니다. 결과는 ~에 저장됩니다.
