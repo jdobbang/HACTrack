@@ -1,6 +1,7 @@
 # HACTrack
 
 HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰도 점수에 더해 상향식 2차원 자세 추정 정보를 더하여 검출 결과에 대한 정교한 외관 변화 정도를 결정하고, 이를 활용하여 다수 휴먼 추적을 수행하는 방법입니다
+![Overview](images/overview.png)
 
 ## [Installation and Setup]
 ### PHALP' 모델 실행
