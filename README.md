@@ -25,7 +25,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     ```
 
 
-### PoseTrack 데이터셋 test 코드 수정 및 데이터셋 다운로드
+### 2.Test 코드 수정 
 
 1.칼만 필터를 위해 추가 라이브러리를 설치합니다:
 ```bash
@@ -46,7 +46,7 @@ pip install filterpy
     ```
 
 
-### 2.Test 결과 파일 후처리
+### 3.Test 결과 후처리
 
 1. Posetrack validation 데이터셋의 170개의 시퀀스에 대한 결과는 `4D-Humans/outputs/results`에 시퀀스 별로 pkl로 저장됩니다.
 2. 본 repository의 `create_txt.py`로 `eval.py`를 대체하고 다음 명령어로 170개의 시퀀스를 posetrack_phalp.pkl로 통합 후 txt 폴더내 170개의 txt 파일로 변환합니다:
@@ -56,7 +56,7 @@ pip install filterpy
 3. 2의 결과로 생성된 txt 폴더의 경로는 tracker 최종 결과 경로입니다.
 
    
-### 3.Evaluation 
+### 4.Evaluation 
 
 1. [TrackEval](https://github.com/JonathonLuiten/TrackEval.git)을 다운로드하고 설치합니다:
 
