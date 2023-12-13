@@ -18,7 +18,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     ```bash
     pip install git+https://github.com/brjathu/PHALP.git@dev
     ```
-4. 4D-Humans 폴더에서 다음 명령어로 PHALP'를 실행하여 확인합니다:
+4. 4D-Humans 폴더에서 다음 명령어로 PHALP'를 실행하여 제대로 설치되었는지 확인합니다:
 
     ```bash
     python track.py video.source="example_data/videos/gymnasts.mp4"
