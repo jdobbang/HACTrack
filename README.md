@@ -21,24 +21,24 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
     ```bash
     python track.py video.source="example_data/videos/gymnasts.mp4"
     ```
-5. 추가 라이브러리를 설치합니다:
-
-    ```bash
-    pip install filterpy
-    ```
 
 
 ### PoseTrack 데이터셋 test 코드 수정 및 데이터셋 다운로드
 
-1. 본 repository의 `track.py`로 `track.py`를 대체합니다.
-2. [T3DP](https://github.com/brjathu/T3DP?tab=readme-ov-file)의 '_DATA' 파일을 4D-Humans 폴더에 다운로드합니다.
-3. [PoseTrack21](https://github.com/anDoer/PoseTrack21.git)을 통해 PoseTrack 이미지와 PoseTrack21에 대한 어노테이션을 다운로드 합니다. 안내사항을 따라 이메일을 통해 토큰을 전달받은 후 다운로드 해야하므로 시간이 조금 소요될 수 있습니다. annotations.zip파일의 PoseTrack21/posetrack_mot/mot/val 폴더를 PATH to PoseTrack21/eval/posetrack21/posetrack21/data/gt/PoseTrackReID/posetrack_data/mot에 위치시킵니다.
-4. `track.py`의 line 69에서 PoseTrack 이미지 데이터셋 경로를 알맞게 수정합니다.
-5. `PHALP.py`로 PATH to Anaconda/envs/4D-humans/lib/python3.10/site-packages/phalp/trackers/PHALP.py를 대체합니다.
-6. HACTrack에 따라 분류된 검출 결과 파일을 다운로드하고 ~에 위치합니다.(링크 제공 예정)
-7. `PHALP.py`의 line 197의 경로는 8번 파일의 경로로 수정합니다.
-8. 본 repository의 `tracker.py`로 PATH to Anaconda/envs/4D-humans/lib/python3.10/site-packages/phalp/external/deep_sort/tracker.py를 대체합니다.
-9. 4D-Humans 폴더에서 다음 명령어를 실행합니다:
+1.칼만 필터를 위해 추가 라이브러리를 설치합니다:
+
+    ```bash
+    pip install filterpy
+    ```
+2. 본 repository의 `track.py`로 `track.py`를 대체합니다.
+3. [T3DP](https://github.com/brjathu/T3DP?tab=readme-ov-file)의 '_DATA' 파일을 4D-Humans 폴더에 다운로드합니다.
+4. [PoseTrack21](https://github.com/anDoer/PoseTrack21.git)을 통해 PoseTrack 이미지와 PoseTrack21에 대한 어노테이션을 다운로드 합니다. 안내사항을 따라 이메일을 통해 토큰을 전달받은 후 다운로드 해야하므로 시간이 조금 소요될 수 있습니다. annotations.zip파일의 PoseTrack21/posetrack_mot/mot/val 폴더를 PATH to PoseTrack21/eval/posetrack21/posetrack21/data/gt/PoseTrackReID/posetrack_data/mot에 위치시킵니다.
+5. `track.py`의 line 69에서 PoseTrack 이미지 데이터셋 경로를 알맞게 수정합니다.
+6. `PHALP.py`로 PATH to Anaconda/envs/4D-humans/lib/python3.10/site-packages/phalp/trackers/PHALP.py를 대체합니다.
+7. HACTrack에 따라 분류된 검출 결과 파일을 다운로드하고 ~에 위치합니다.(링크 제공 예정)
+8. `PHALP.py`의 line 197의 경로는 8번 파일의 경로로 수정합니다.
+9. 본 repository의 `tracker.py`로 PATH to Anaconda/envs/4D-humans/lib/python3.10/site-packages/phalp/external/deep_sort/tracker.py를 대체합니다.
+10. 4D-Humans 폴더에서 다음 명령어를 실행합니다:
 
     ```bash
     python track.py
