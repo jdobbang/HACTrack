@@ -5,7 +5,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
 ![Overview](images/overview.png)
 
 ## [Installation and Setup]
-### PHALP' 모델 실행
+### 1.Baseline modl인 PHALP' 모델 실행
 
 1. [4dhumans](https://github.com/shubham-goel/4D-Humans) 깃허브의 "dev branch"를 다음 명령어로 클론합니다:
 
@@ -46,7 +46,7 @@ pip install filterpy
     ```
 
 
-### Test 결과 후처리
+### 2.Test 결과 파일 후처리
 
 1. Posetrack validation 데이터셋의 170개의 시퀀스에 대한 결과는 `4D-Humans/outputs/results`에 시퀀스 별로 pkl로 저장됩니다.
 2. 본 repository의 `create_txt.py`로 `eval.py`를 대체하고 다음 명령어로 170개의 시퀀스를 posetrack_phalp.pkl로 통합 후 txt 폴더내 170개의 txt 파일로 변환합니다:
@@ -56,7 +56,7 @@ pip install filterpy
 3. 2의 결과로 생성된 txt 폴더의 경로는 tracker 최종 결과 경로입니다.
 
    
-### Evaluation 
+### 3.Evaluation 
 
 1. [TrackEval](https://github.com/JonathonLuiten/TrackEval.git)을 다운로드하고 설치합니다:
 
