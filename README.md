@@ -73,6 +73,3 @@ pip install filterpy
     pip install shapely
     ```
 4.  PATH to PoseTrack/eval/posetrack21/scripts/run_mot.py로 평가를 수행합니다. 결과는 tracker 별 txt 폴더 내에 저장됩니다.
-
-   
-### HACTrack 검출 결과 생성 코드
