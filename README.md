@@ -56,7 +56,7 @@ pip install filterpy
 3. 2의 결과로 생성된 txt 폴더의 경로는 tracker 최종 결과 경로입니다.
 
    
-### 4.Evaluation 
+### 4.PoseTrack21 데이터셋 evaluation 
 
 1. [TrackEval](https://github.com/JonathonLuiten/TrackEval.git)을 다운로드하고 설치합니다:
 
