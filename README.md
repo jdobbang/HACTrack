@@ -5,7 +5,7 @@ HACTrack은 [ByteTrack](https://github.com/ifzhang/ByteTrack)의 검출 신뢰�
 ![Overview](images/overview.png)
 
 ## [Installation and Setup]
-### 1.Baseline modl인 PHALP' 모델 실행
+### 1.Baseline model인 PHALP' 모델 실행
 
 1. [4dhumans](https://github.com/shubham-goel/4D-Humans) 깃허브의 dev 브랜치를 클론합니다:
 
